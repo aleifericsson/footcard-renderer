@@ -7,3 +7,8 @@
   font-family: 'Lato';
   src: url(../fonts/Lato-Medium.ttf) format('truetype');
 }
+
+
+.app{
+  background-color: #DFD9E2;
+}

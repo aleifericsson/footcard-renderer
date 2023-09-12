@@ -1,0 +1,20 @@
+.navbar{
+    display:flex;
+    justify-content: space-between;
+    padding: 20px 50px;
+    background-color: #2A7F62;
+    width:100vw;
+    max-width: 100%;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.navbutts{
+    display:flex;
+    gap:30px;
+}
+
+.navtit{
+    display:flex;
+    gap:30px;
+}

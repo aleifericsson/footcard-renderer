@@ -8,7 +8,7 @@ import Footer from './Footer';
 function App() {
 
   return (
-    <>
+    <div className="app">
     <Router>
       <div style={{display: "flex", flexDirection:"column",justifyContent:"space-between"}}>
       <Navbar/>
@@ -19,7 +19,7 @@ function App() {
       <Footer/>
       </div>
     </Router>
-    </>
+    </div>
   )
 }
 
