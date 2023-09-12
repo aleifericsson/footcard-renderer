@@ -4,6 +4,7 @@
 
 .dropmenu{
     display:flex;
+    justify-content: space-between;
     gap:10px;
     padding:5px 20px;
     background-color: #2A7F62;

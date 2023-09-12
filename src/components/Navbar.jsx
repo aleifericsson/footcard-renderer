@@ -9,10 +9,10 @@ export default function Navbar(){
                 <Title>Footcard Renderer</Title>
             </div>
             <div className = "navbutts">
-                    <NavLink to="/" activestyle="true">
+                    <NavLink to="/footcard-renderer/" activestyle="true">
                         <LinkButton><PageName>Home</PageName></LinkButton>
                     </NavLink>
-                    <NavLink to="/about" activestyle="true">
+                    <NavLink to="/footcard-renderer/about" activestyle="true">
                         <LinkButton><PageName>About</PageName></LinkButton>
                     </NavLink>
             </div>

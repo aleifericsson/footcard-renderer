@@ -13,8 +13,8 @@ function App() {
       <div style={{display: "flex", flexDirection:"column",justifyContent:"space-between"}}>
       <Navbar/>
       <Routes>
-        <Route exact path='/' element={<Home />} />
-        <Route path='/About' element={<About />} />
+        <Route exact path='/footcard-renderer/' element={<Home />} />
+        <Route path='footcard-renderer/about' element={<About />} />
       </Routes>
       <Footer/>
       </div>

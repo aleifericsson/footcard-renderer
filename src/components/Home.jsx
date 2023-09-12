@@ -1,16 +1,17 @@
 import "../css/Home.css" 
 import { PageName } from "./StyledComps";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 
 export default function Home(){
-    const [dropdowns, toggledropdowns] = useState([
+    const [dropdowns, updatedropdowns] = useState([
         {
-            name:"Set Stats",
+            name:"Set Name",
             open:false
         },
         {
-            name:"Change Stats",
+            name:"Set Stats",
             open:false
         },
         {
@@ -18,29 +19,30 @@ export default function Home(){
             open:false
         },
         {
-            name:"Set Player Image",
+            name:"Set Player",
             open:false
         }
 ]);
 
 
-    toggledropdowns("bruh")
 
-/*
-    const tdd = (num) =>{
-        let tempList = [...dropdowns];
-        tempList[num].open = !tempList[num].open;
-        toggledropdowns(tempList);
-    }
-    */
-
-    // onclick={tdd(dropdowns.indexOf(dropdown))}
+    
 
     return (
         <div className="home">
             
             <div className="left-side">
-                {dropdowns.map(dropdown => {return(<Dropmenu key={dropdown.name} text={dropdown.name} open={dropdown.open} />)})}
+                {dropdowns.map((dropdown) => {
+                    return(
+                    <Dropmenu key={dropdown.name} text={dropdown.name} open={dropdown.open} oncl={() => {
+                        let tempList = [...dropdowns];
+                        const ind = dropdowns.indexOf(dropdown)
+                        tempList[ind].open = !tempList[ind].open;
+                        updatedropdowns(tempList);
+                    }}
+                    />
+                    )
+                })}
             </div>
             <div className="right-side">
 
@@ -49,9 +51,9 @@ export default function Home(){
     );
 }
 
-function Dropmenu({text,open,key,onclick}){
+function Dropmenu({text,open,oncl}){
     return(
-        <div className="dropmenu" key={key} onClick={onclick}>
+        <div className="dropmenu" onClick={oncl}>
             <PageName>{text}</PageName>
             <Arrow open={open}></Arrow>
         </div>
@@ -60,12 +62,28 @@ function Dropmenu({text,open,key,onclick}){
 
 function Arrow({open}){
     return open ? (
-        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+        <motion.svg 
+        initial={{ rotate:0 }}
+        animate={{ rotate:180 }}
+        transition={{
+          type: "spring",
+          stiffness: 100,
+          damping: 20
+        }}
+        xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" >
         <path fill="white" d="M10.5 15l7.5 7.5 7.5-7.5z"/>
-        </svg>
+        </motion.svg>
     ):(
-        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" style={{transform:"rotate(180deg)"}}>
+        <motion.svg 
+        initial={{ rotate:180 }}
+        animate={{ rotate:0 }}
+        transition={{
+          type: "spring",
+          stiffness: 100,
+          damping: 20
+        }}
+        xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
         <path fill="white" d="M10.5 15l7.5 7.5 7.5-7.5z"/>
-        </svg>
+        </motion.svg>
     );
 }
