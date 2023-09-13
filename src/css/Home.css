@@ -9,5 +9,16 @@
     padding:5px 20px;
     background-color: #2A7F62;
     align-items: center;
+    width: 20vw;
+    min-width:250px;
+}
+
+.content{
+    overflow:auto;
+}
+
+.right-side{
     width:auto;
+    height:auto;
+    padding:auto;
 }

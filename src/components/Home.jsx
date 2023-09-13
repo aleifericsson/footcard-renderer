@@ -1,26 +1,51 @@
 import "../css/Home.css" 
-import { PageName } from "./StyledComps";
+import { PageName,Text } from "./StyledComps";
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import Card from "./Card";
 
 
 export default function Home(){
     const [dropdowns, updatedropdowns] = useState([
         {
             name:"Set Name",
-            open:false
+            open:false,
+            contents:(
+                <Content content={(
+                    <>
+                    <Text>aasdasf</Text>
+                    </>
+                )}/>)
         },
         {
             name:"Set Stats",
-            open:false
+            open:false,
+            contents:(
+                <Content content={(
+                    <>
+                    basdsa
+                    </>
+                )}/>)
         },
         {
             name:"Set Logo",
-            open:false
+            open:false,
+            contents:(
+                <Content content={(
+                    <>
+                    c
+                    </>
+                )}/>)
         },
         {
             name:"Set Player",
-            open:false
+            open:false,
+            contents:(
+                <Content content={(
+                    <>
+                    d
+                    </>
+                )}/>)
         }
 ]);
 
@@ -34,6 +59,7 @@ export default function Home(){
             <div className="left-side">
                 {dropdowns.map((dropdown) => {
                     return(
+                    <>
                     <Dropmenu key={dropdown.name} text={dropdown.name} open={dropdown.open} oncl={() => {
                         let tempList = [...dropdowns];
                         const ind = dropdowns.indexOf(dropdown)
@@ -41,11 +67,13 @@ export default function Home(){
                         updatedropdowns(tempList);
                     }}
                     />
+                    {dropdown.open && dropdown.contents}
+                    </>
                     )
                 })}
             </div>
             <div className="right-side">
-
+                <Card></Card>
             </div>
         </div>
     );
@@ -53,10 +81,38 @@ export default function Home(){
 
 function Dropmenu({text,open,oncl}){
     return(
-        <div className="dropmenu" onClick={oncl}>
+        <motion.div
+        className="dropmenu" onClick={oncl}
+        layout 
+        transition={{
+            type: "spring",
+            stiffness: 200,
+            damping: 20,
+          }}
+        >
             <PageName>{text}</PageName>
             <Arrow open={open}></Arrow>
-        </div>
+        </motion.div>
+    )
+}
+
+function Content({content}){
+    return(
+        <AnimatePresence>
+        <motion.div className="content"
+        initial={{ opacity:0}}
+        animate={{ opacity:1}}
+        exit={{ opacity: 0 }}
+        transition={{
+          type: "spring",
+          stiffness: 200,
+          damping: 20,
+          staggerChildren: 0.5,
+        }}
+        >
+            {content}
+        </motion.div>
+        </AnimatePresence>
     )
 }
 
@@ -67,8 +123,8 @@ function Arrow({open}){
         animate={{ rotate:180 }}
         transition={{
           type: "spring",
-          stiffness: 100,
-          damping: 20
+          stiffness: 200,
+          damping: 20,
         }}
         xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" >
         <path fill="white" d="M10.5 15l7.5 7.5 7.5-7.5z"/>
@@ -79,8 +135,8 @@ function Arrow({open}){
         animate={{ rotate:0 }}
         transition={{
           type: "spring",
-          stiffness: 100,
-          damping: 20
+          stiffness: 200,
+          damping: 20,
         }}
         xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
         <path fill="white" d="M10.5 15l7.5 7.5 7.5-7.5z"/>
