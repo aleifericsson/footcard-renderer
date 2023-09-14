@@ -1,5 +1,5 @@
 import "../css/Home.css" 
-import { PageName,Text } from "./StyledComps";
+import { PageName,Text,Textalt } from "./StyledComps";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Card from "./Card";
@@ -13,7 +13,10 @@ export default function Home(){
             contents:(
                 <Content content={(
                     <>
-                    <Text>aasdasf</Text>
+                    <label><Text>Player First Name:</Text></label>
+                    <input type="text" className="first-name"></input>
+                    <label><Text>Player Last Name:</Text></label>
+                    <input type="text" className="last-name"></input>
                     </>
                 )}/>)
         },
@@ -23,27 +26,40 @@ export default function Home(){
             contents:(
                 <Content content={(
                     <>
-                    basdsa
+                    <label><Text>Passing:</Text></label>
+                    <input type="number" min="0" max="100" className="pass"></input>
+                    <label><Text>Skill:</Text></label>
+                    <input type="number" min="0" max="100" className="skill"></input>
+                    <label><Text>Shooting:</Text></label>
+                    <input type="number" min="0" max="100" className="shoot"></input>
+                    <label><Text>Power:</Text></label>
+                    <input type="number" min="0" max="100" className="power"></input>
+                    <label><Text>Tackling:</Text></label>
+                    <input type="number" min="0" max="100" className="tackle"></input>
+                    <label><Text>Speed:</Text></label>
+                    <input type="number" min="0" max="100" className="speed"></input>
                     </>
                 )}/>)
         },
         {
-            name:"Set Logo",
+            name:"Render Logo",
             open:false,
             contents:(
                 <Content content={(
                     <>
-                    c
+                    <button className="import-logo"><Textalt>Import Logo</Textalt></button>
+                    <button className="select-logo"><Textalt>Select From Existing Logos</Textalt></button>
                     </>
                 )}/>)
         },
         {
-            name:"Set Player",
+            name:"Render Player",
             open:false,
             contents:(
                 <Content content={(
                     <>
-                    d
+                    <button className="import-player"><Textalt>Import Player</Textalt></button>
+                    <button className="select-player"><Textalt>Select From Existing Players</Textalt></button>
                     </>
                 )}/>)
         }
@@ -100,6 +116,7 @@ function Content({content}){
     return(
         <AnimatePresence>
         <motion.div className="content"
+        layout
         initial={{ opacity:0}}
         animate={{ opacity:1}}
         exit={{ opacity: 0 }}

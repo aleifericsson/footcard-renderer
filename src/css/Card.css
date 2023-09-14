@@ -1,8 +1,16 @@
-/*
+
 .card{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  background-color: white;
+  width: 444px;
+  height: 640px;
+  text-align: center;
+  vertical-align: middle;
 }
+
+/*
+
+Max Res size: 1776 x 2560
+Medium: 888 x 1280
+Small: 444 x 640
+
 */

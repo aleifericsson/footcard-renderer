@@ -1,4 +1,4 @@
-import { PageName,LinkButton,Title } from "./StyledComps.jsx";
+import { PageName,Title } from "./StyledComps.jsx";
 import { NavLink} from "react-router-dom";
 import "../css/Navbar.css";
 
@@ -10,10 +10,10 @@ export default function Navbar(){
             </div>
             <div className = "navbutts">
                     <NavLink to="/footcard-renderer/" activestyle="true">
-                        <LinkButton><PageName>Home</PageName></LinkButton>
+                        <PageName>Home</PageName>
                     </NavLink>
                     <NavLink to="/footcard-renderer/about" activestyle="true">
-                        <LinkButton><PageName>About</PageName></LinkButton>
+                        <PageName>About</PageName>
                     </NavLink>
             </div>
         </div>

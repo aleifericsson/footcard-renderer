@@ -9,15 +9,11 @@ const PageName = styled.div`
 
 const Title = styled.div`
     font-size:32px;
-    font-weight:600;
     font-family: 'Chakra Petch';
     color:white;
     background-color:#2A7F62;
 `
 
-const LinkButton = styled.div`
-    text-decoration:none;
-`
 const Text = styled.div`
     font-size:18px;
     font-family: 'Lato';
@@ -27,6 +23,7 @@ const Textalt = styled.div`
 font-size:18px;
 font-family: 'Lato';
 color:white;
+font-weight:600;
 `
 
-export {PageName,LinkButton,Title,Text,Textalt};
+export {PageName,Title,Text,Textalt};
