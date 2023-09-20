@@ -3,6 +3,7 @@ import { PageName,Text,Textalt } from "./StyledComps";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Card from "./Card";
+import DesignPicker from "./DesignPicker";
 
 /*
 NOTES:
@@ -103,9 +104,9 @@ export default function Home(){
                 <Content content={(
                     <>
                     <label><Text>Primary Color:</Text></label>
-                    <input type="color" className="pri-col"></input>
+                    <input type="color" className="pri-col" defaultValue="#0057B8"></input>
                     <label><Text>Secondary Color:</Text></label>
-                    <input type="color" className="sec-col"></input>
+                    <input type="color" className="sec-col" defaultValue="#FFCD00"></input>
                     </>
                 )}/>)
         },
@@ -114,9 +115,7 @@ export default function Home(){
             open:false,
             contents:(
                 <Content content={(
-                    <>
-                    nothing for now but add a blank card with the ability to change with arrows that would be cool
-                    </>
+                    <DesignPicker/>
                 )}/>)
         },
         
@@ -133,7 +132,7 @@ export default function Home(){
                 {dropdowns.map((dropdown) => {
                     return(
                     <>
-                    <Dropmenu key={dropdown.name} text={dropdown.name} open={dropdown.open} oncl={() => {
+                    <Dropmenu keys={dropdown.name} text={dropdown.name} open={dropdown.open} oncl={() => {
                         let tempList = [...dropdowns];
                         const ind = dropdowns.indexOf(dropdown)
                         tempList[ind].open = !tempList[ind].open;
@@ -152,10 +151,11 @@ export default function Home(){
     );
 }
 
-function Dropmenu({text,open,oncl}){
+function Dropmenu({text,open,oncl,keys}){
     return(
         <motion.div
         className="dropmenu" onClick={oncl}
+        key={keys}
         layout 
         transition={{
             type: "spring",

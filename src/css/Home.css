@@ -54,3 +54,9 @@ button:focus-visible {
 input{
     font-family:"Lato" sans-serif;
 }
+
+.design-picker{
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
