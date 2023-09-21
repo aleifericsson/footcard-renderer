@@ -1,9 +1,10 @@
 import "../css/Home.css" 
-import { PageName,Text,Textalt } from "./StyledComps";
+import { PageName,Textalt } from "./StyledComps";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Card from "./Card";
-import DesignPicker from "./DesignPicker";
+import dropdowndata from "./Dropdowns";
+import { card_data, setData } from "../scripts/cardData";
 
 /*
 NOTES:
@@ -17,118 +18,13 @@ NOTES:
 */
 
 export default function Home(){
-    const [dropdowns, updatedropdowns] = useState([
-        {
-            name:"Set Player Name",
-            open:false,
-            contents:(
-                <Content content={(
-                    <>
-                    <label><Text>Player First Name:</Text></label>
-                    <input type="text" className="first-name" defaultValue="Kaoru"></input>
-                    <label><Text>Player Last Name:</Text></label>
-                    <input type="text" className="last-name" defaultValue="Mitoma"></input>
-                    </>
-                )}/>)
-        },
-        {
-            name:"Set Player Data",
-            open:false,
-            contents:(
-                <Content content={(
-                    <>
-                    <label><Text>Attack</Text></label>
-                    <input type="number" min="0" max="100" className="attack" defaultValue="86"></input>
-                    <label><Text>Defence</Text></label>
-                    <input type="number" min="0" max="100" className="defence" defaultValue="39"></input>
-                    <label><Text>Price (£m)</Text></label>
-                    <input type="number" min="0" max="100" className="price" defaultValue="40"></input>
-                    <label><Text>Position</Text></label>
-                    <select defaultValue="mf" name="position" className="position">
-                    <option value="fw">Forward</option>
-                    <option value="mf">Midfielder</option>
-                    <option value="df">Defender</option>
-                    <option value="gk">Goalkeeper</option>
-                    </select>
-
-                    </>
-                )}/>)
-        },
-        {
-            name:"Set Attributes",
-            open:false,
-            contents:(
-                <Content content={(
-                    <>
-                    <label><Text>Passing:</Text></label>
-                    <input type="number" min="0" max="100" className="pass" defaultValue="84"></input>
-                    <label><Text>Skill:</Text></label>
-                    <input type="number" min="0" max="100" className="skill" defaultValue="90"></input>
-                    <label><Text>Shooting:</Text></label>
-                    <input type="number" min="0" max="100" className="shoot" defaultValue="81"></input>
-                    <label><Text>Power:</Text></label>
-                    <input type="number" min="0" max="100" className="power" defaultValue="76"></input>
-                    <label><Text>Tackling:</Text></label>
-                    <input type="number" min="0" max="100" className="tackle" defaultValue="34"></input>
-                    <label><Text>Speed:</Text></label>
-                    <input type="number" min="0" max="100" className="speed" defaultValue="91"></input>
-                    </>
-                )}/>)
-        },
-        {
-            name:"Render Logo",
-            open:false,
-            contents:(
-                <Content content={(
-                    <>
-                    <button className="import-logo"><Textalt>Import Logo</Textalt></button>
-                    <button className="select-logo"><Textalt>Select From Existing Logos</Textalt></button>
-                    </>
-                )}/>)
-        },
-        {
-            name:"Render Player",
-            open:false,
-            contents:(
-                <Content content={(
-                    <>
-                    <button className="import-player"><Textalt>Import Player</Textalt></button>
-                    <button className="select-player"><Textalt>Select From Existing Players</Textalt></button>
-                    </>
-                )}/>)
-        },
-        {
-            name:"Set Colours",
-            open:false,
-            contents:(
-                <Content content={(
-                    <>
-                    <label><Text>Primary Color:</Text></label>
-                    <input type="color" className="pri-col" defaultValue="#0057B8"></input>
-                    <label><Text>Secondary Color:</Text></label>
-                    <input type="color" className="sec-col" defaultValue="#FFCD00"></input>
-                    </>
-                )}/>)
-        },
-        {
-            name:"Set Card Design",
-            open:false,
-            contents:(
-                <Content content={(
-                    <DesignPicker/>
-                )}/>)
-        },
-        
-]);
-
-
-
-    
+    const [dropdowns, updatedropdowns] = useState(dropdowndata);    
 
     return (
         <div className="home">
             
             <div className="left-side">
+                <form id="form">
                 {dropdowns.map((dropdown) => {
                     return(
                     <>
@@ -139,10 +35,15 @@ export default function Home(){
                         updatedropdowns(tempList);
                     }}
                     />
-                    {dropdown.open && dropdown.contents}
+                    {dropdown.contents}
                     </>
                     )
                 })}
+            <button type="submit" onClick={(e)=>{
+                e.preventDefault();
+                console.log(setData(card_data));
+            }}><Textalt>Submit</Textalt></button>
+            </form>
             </div>
             <div className="right-side">
                 <Card></Card>
@@ -169,26 +70,7 @@ function Dropmenu({text,open,oncl,keys}){
     )
 }
 
-function Content({content}){
-    return(
-        <AnimatePresence>
-        <motion.div className="content"
-        layout
-        initial={{ opacity:0}}
-        animate={{ opacity:1}}
-        exit={{ opacity: 0 }}
-        transition={{
-          type: "spring",
-          stiffness: 200,
-          damping: 20,
-          staggerChildren: 0.5,
-        }}
-        >
-            {content}
-        </motion.div>
-        </AnimatePresence>
-    )
-}
+
 
 function Arrow({open}){
     return open ? (
@@ -217,3 +99,34 @@ function Arrow({open}){
         </motion.svg>
     );
 }
+
+function Content({content, show}){
+    let theStyle= show ? {
+        position:"static",
+        top:"0px"
+    } : {
+        position:"absolute",
+        top:"-100%",
+    }
+    return(
+        <AnimatePresence>
+        <motion.div className="content"
+        layout
+        initial={{ opacity:0}}
+        animate={{ opacity:1}}
+        exit={{ opacity: 0 }}
+        transition={{
+          type: "spring",
+          stiffness: 200,
+          damping: 20,
+          staggerChildren: 0.5,
+        }}
+        style={theStyle}
+        >
+            {content}
+        </motion.div>
+        </AnimatePresence>
+    )
+}
+
+export {Content};

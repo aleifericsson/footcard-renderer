@@ -13,11 +13,6 @@
     min-width:150px;
 }
 
-.content{
-    overflow:auto;
-    padding:10px;
-}
-
 
 .right-side{
     display: flex;
@@ -27,7 +22,6 @@
     justify-content: center;
     align-items: center;
 }
-
 
 input{
     margin-bottom: 5px;
@@ -55,8 +49,3 @@ input{
     font-family:"Lato" sans-serif;
 }
 
-.design-picker{
-    display:flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
