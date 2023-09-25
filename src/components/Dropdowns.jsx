@@ -1,6 +1,5 @@
 import { Text,Textalt } from "./StyledComps";
 import DesignPicker from "./DesignPicker";
-import { Content } from "./Home";
 import "../css/Dropdowns.css"
 
 let dropdowndata = [
@@ -8,20 +7,20 @@ let dropdowndata = [
         name:"Set Player Name",
         open:false,
         contents:(
-            <Content show={open} content={(
+            
                 <>
                 <label><Text>Player First Name:</Text>
                 <input type="text" id="first-name" defaultValue="Kaoru"></input></label>
                 <label><Text>Player Last Name:</Text>
                 <input type="text" id="last-name" defaultValue="Mitoma"></input></label>
                 </>
-            )}/>)
+            )
     },
     {
         name:"Set Player Data",
         open:false,
         contents:(
-            <Content show={open} content={(
+            
                 <>
                 <label><Text>Attack</Text>
                 <input type="number" min="0" max="100" id="attack" defaultValue="86"></input></label>
@@ -38,13 +37,13 @@ let dropdowndata = [
                 </select></label>
 
                 </>
-            )}/>)
+            )
     },
     {
         name:"Set Attributes",
         open:false,
         contents:(
-            <Content show={open} content={(
+            
                 <>
                 <label><Text>Passing:</Text> 
                 <input type="number" min="0" max="100" id="pass" defaultValue="84"></input></label>
@@ -59,50 +58,50 @@ let dropdowndata = [
                 <label><Text>Speed:</Text>
                 <input type="number" min="0" max="100" id="speed" defaultValue="91"></input></label>
                 </>
-            )}/>)
+            )
     },
     {
         name:"Render Logo",
         open:false,
         contents:(
-            <Content show={open} content={(
+            
                 <>
                 <button id="import-logo"><Textalt>Import Logo</Textalt></button>
                 <button id="select-logo"><Textalt>Select From Existing Logos</Textalt></button>
                 </>
-            )}/>)
+            )
     },
     {
         name:"Render Player",
         open:false,
         contents:(
-            <Content show={open} content={(
+            
                 <>
                 <button id="import-player"><Textalt>Import Player</Textalt></button>
                 <button id="select-player"><Textalt>Select From Existing Players</Textalt></button>
                 </>
-            )}/>)
+            )
     },
     {
         name:"Set Colours",
         open:false,
         contents:(
-            <Content show={open} content={(
+            
                 <>
                 <label><Text>Primary Color:</Text> 
                 <input type="color" id="pri-col" defaultValue="#0057B8"></input></label>
                 <label><Text>Secondary Color:</Text> 
                 <input type="color" id="sec-col" defaultValue="#FFCD00"></input></label>
                 </>
-            )}/>)
+            )
     },
     {
         name:"Set Card Design",
         open:false,
         contents:(
-            <Content show={open} content={(
+            
                 <DesignPicker/>
-            )}/>)
+            )
     },
     
 ]

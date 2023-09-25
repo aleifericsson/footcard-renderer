@@ -1,11 +1,10 @@
 import "../css/Home.css" 
-import { PageName,Textalt } from "./StyledComps";
+import { PageName,} from "./StyledComps";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Card from "./Card";
 import dropdowndata from "./Dropdowns";
 import { card_data, setData } from "../scripts/cardData";
-
 /*
 NOTES:
 
@@ -35,14 +34,14 @@ export default function Home(){
                         updatedropdowns(tempList);
                     }}
                     />
-                    {dropdown.contents}
+                    <Content show={dropdown.open} content={dropdown.contents}/>
                     </>
                     )
                 })}
-            <button type="submit" onClick={(e)=>{
+            <button type="submit" id="submit" onClick={(e)=>{
                 e.preventDefault();
                 console.log(setData(card_data));
-            }}><Textalt>Submit</Textalt></button>
+            }}>Render Card</button>
             </form>
             </div>
             <div className="right-side">
@@ -101,20 +100,21 @@ function Arrow({open}){
 }
 
 function Content({content, show}){
+    let shown = show ? "showing" : "not-showing";
     let theStyle= show ? {
         position:"static",
-        top:"0px"
+        top:"0px",
     } : {
         position:"absolute",
         top:"-100%",
     }
     return(
         <AnimatePresence>
-        <motion.div className="content"
+        <motion.div className={`content ${shown}`}
         layout
-        initial={{ opacity:0}}
-        animate={{ opacity:1}}
-        exit={{ opacity: 0 }}
+        initial={{ opacity:0, scale:1}}
+        animate={{ opacity:1, scale:1}}
+        exit={{ opacity: 0, scale:1 }}
         transition={{
           type: "spring",
           stiffness: 200,
