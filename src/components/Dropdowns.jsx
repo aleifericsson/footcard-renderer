@@ -66,8 +66,8 @@ let dropdowndata = [
         contents:(
             
                 <>
-                <button id="import-logo"><Textalt>Import Logo</Textalt></button>
-                <button id="select-logo"><Textalt>Select From Existing Logos</Textalt></button>
+                <button type="button" id="import-logo"><Textalt>Import Logo</Textalt></button>
+                <button type="button" id="select-logo"><Textalt>Select From Existing Logos</Textalt></button>
                 </>
             )
     },
@@ -77,8 +77,8 @@ let dropdowndata = [
         contents:(
             
                 <>
-                <button id="import-player"><Textalt>Import Player</Textalt></button>
-                <button id="select-player"><Textalt>Select From Existing Players</Textalt></button>
+                <button type="button" id="import-player"><Textalt>Import Player</Textalt></button>
+                <button type="button" id="select-player"><Textalt>Select From Existing Players</Textalt></button>
                 </>
             )
     },

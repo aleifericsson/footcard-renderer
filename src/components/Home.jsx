@@ -5,10 +5,11 @@ import { AnimatePresence, motion } from "framer-motion";
 import Card from "./Card";
 import dropdowndata from "./Dropdowns";
 import { card_data, setData } from "../scripts/cardData";
+import { def_tra } from "../scripts/otherData";
+
 /*
 NOTES:
 
-- inputs should have id and name and labels should have 4
 - fix that issue with missing keys bro idk
 - make the set stats text boxes tesselate
 - fix css for content make it maxed out like dropdown
@@ -38,10 +39,15 @@ export default function Home(){
                     </>
                     )
                 })}
-            <button type="submit" id="submit" onClick={(e)=>{
+                <AnimatePresence>
+            <motion.button type="submit" id="submit" onClick={(e)=>{
                 e.preventDefault();
                 console.log(setData(card_data));
-            }}>Render Card</button>
+            }}
+            layout
+            transition={def_tra}
+            >Render Card</motion.button>
+            </AnimatePresence>
             </form>
             </div>
             <div className="right-side">
@@ -57,11 +63,7 @@ function Dropmenu({text,open,oncl,keys}){
         className="dropmenu" onClick={oncl}
         key={keys}
         layout 
-        transition={{
-            type: "spring",
-            stiffness: 200,
-            damping: 20,
-          }}
+        transition={def_tra}
         >
             <PageName>{text}</PageName>
             <Arrow open={open}></Arrow>
@@ -76,11 +78,7 @@ function Arrow({open}){
         <motion.svg 
         initial={{ rotate:0 }}
         animate={{ rotate:180 }}
-        transition={{
-          type: "spring",
-          stiffness: 200,
-          damping: 20,
-        }}
+        transition={def_tra}
         xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" >
         <path fill="white" d="M10.5 15l7.5 7.5 7.5-7.5z"/>
         </motion.svg>
@@ -88,11 +86,7 @@ function Arrow({open}){
         <motion.svg 
         initial={{ rotate:180 }}
         animate={{ rotate:0 }}
-        transition={{
-          type: "spring",
-          stiffness: 200,
-          damping: 20,
-        }}
+        transition={def_tra}
         xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
         <path fill="white" d="M10.5 15l7.5 7.5 7.5-7.5z"/>
         </motion.svg>
@@ -103,10 +97,12 @@ function Content({content, show}){
     let shown = show ? "showing" : "not-showing";
     let theStyle= show ? {
         position:"static",
-        top:"0px",
+        top:0,
+        width:"100%",
     } : {
         position:"absolute",
         top:"-100%",
+        width:"100%",
     }
     return(
         <AnimatePresence>
@@ -115,12 +111,7 @@ function Content({content, show}){
         initial={{ opacity:0, scale:1}}
         animate={{ opacity:1, scale:1}}
         exit={{ opacity: 0, scale:1 }}
-        transition={{
-          type: "spring",
-          stiffness: 200,
-          damping: 20,
-          staggerChildren: 0.5,
-        }}
+        transition={def_tra}
         style={theStyle}
         >
             {content}

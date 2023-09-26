@@ -40,10 +40,6 @@ button {
 button:hover {
     background-color: #697c7e;
 }
-button:focus,
-button:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
-}
 
 input{
     font-family:"Lato" sans-serif;
@@ -51,7 +47,8 @@ input{
 
 #submit{
     margin: 20px 15px;
-    box-shadow: -5px -5px #2A7F62;
+    box-shadow: -5px -5px #2A7F62, 5px 5px #2A7F62;
+    border: 5px solid #DFD9E2;
     font-size:20px;
     font-family: 'Lato';
     color:white;

@@ -4,7 +4,7 @@ export default function DesignPicker(){
     const [cur_design, changeDesign] = useState(0);
 
     return(<div className="design-picker">
-        <button onClick={()=>{
+        <button type="button" onClick={()=>{
             if(cur_design>0){
                 changeDesign(cur_design-1)
             }
@@ -13,7 +13,7 @@ export default function DesignPicker(){
             }}
         }><Arrow left={true}/></button>
         <CardDesign index={cur_design}></CardDesign>
-        <button onClick={()=>{
+        <button type="button" onClick={()=>{
             if(cur_design<design_list.length-1){
                 changeDesign(cur_design+1)
             }
