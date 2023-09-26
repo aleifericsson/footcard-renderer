@@ -1,9 +1,12 @@
 import { useState } from "react"
+import { Text } from "./StyledComps";
+import { design_list } from "../scripts/otherData";
 
 export default function DesignPicker(){
     const [cur_design, changeDesign] = useState(0);
 
-    return(<div className="design-picker">
+    return(<div>
+        <div className="design-picker">
         <button type="button" onClick={()=>{
             if(cur_design>0){
                 changeDesign(cur_design-1)
@@ -22,19 +25,15 @@ export default function DesignPicker(){
             }}
         }><Arrow left={false}/></button>
     </div>
+    <div style={{textAlign:"center", margin:"5px"}}><Text>{design_list[cur_design].desc}</Text></div>
+    </div>
     )
 }
 
 function CardDesign({index}){
-    return(<img src={design_list[index]}></img>)
+    return(<img src={design_list[index].source}></img>)
 }
 
-const design_list = [
-    "https://www.corinthianseller.co.uk/match-attax/ma21/ma21-uc01-zlatan-ibrahimovic.png",
-    "https://www.corinthianseller.co.uk/match-attax/ma21/ma21-le01b-roberto-firmino.png",
-    "https://www.corinthianseller.co.uk/match-attax/ma21/ma21-cl01-alisson-becker.png",
-    "https://www.corinthianseller.co.uk/match-attax/ma21/ma21-rs01-ansu-fati.png",
-]
 
 function Arrow({left}){
     return left ? (
