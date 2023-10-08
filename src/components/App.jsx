@@ -4,8 +4,12 @@ import Navbar from './Navbar.jsx'
 import About from './About';
 import Home from './Home';
 import Footer from './Footer';
+import { useEffect } from 'react';
 
 function App() {
+  useEffect(() => {
+    document.getElementById("path7").style.fill='green';
+},[])
 
   return (
     <div className="app">
