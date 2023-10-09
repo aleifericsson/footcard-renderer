@@ -43,7 +43,6 @@ export default function Home(){
             <motion.button type="submit" id="submit" onClick={(e)=>{
                 e.preventDefault();
                 console.log(setData(card_data));
-                document.getElementById("path7").style.fill='blue';
             }}
             layout
             transition={def_tra}

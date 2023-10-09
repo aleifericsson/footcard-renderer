@@ -11,7 +11,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       </Helmet>
     <App />
     </HelmetProvider>
-  </React.StrictMode>,
+  </React.StrictMode>
 )
-document.getElementById("path7").style.fill='green';
+
 

@@ -29,11 +29,11 @@ let dropdowndata = [
                 <label><Text>Price (£m)</Text>
                 <input type="number" min="0" max="100" id="price" defaultValue="40"></input></label>
                 <label><Text>Position</Text> 
-                <select defaultValue="mf" name="position" id="position">
-                <option value="fw">Forward</option>
-                <option value="mf">Midfielder</option>
-                <option value="df">Defender</option>
-                <option value="gk">Goalkeeper</option>
+                <select defaultValue="Midfielder" name="position" id="position">
+                <option value="Forward">Forward</option>
+                <option value="Midfielder">Midfielder</option>
+                <option value="Defender">Defender</option>
+                <option value="Goalkeeper">Goalkeeper</option>
                 </select></label>
 
                 </>

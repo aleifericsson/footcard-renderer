@@ -5,10 +5,11 @@ import About from './About';
 import Home from './Home';
 import Footer from './Footer';
 import { useEffect } from 'react';
+import { card_data, setData } from '../scripts/cardData';
 
 function App() {
   useEffect(() => {
-    document.getElementById("path7").style.fill='green';
+    setData(card_data);
 },[])
 
   return (
