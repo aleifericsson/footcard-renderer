@@ -31,7 +31,10 @@ export default function DesignPicker(){
 }
 
 function CardDesign({index}){
-    return(<img src={design_list[index].source}></img>)
+    return(<div>
+        <img id="card-design" width={111} height={160} src={design_list[index].source} data-design={design_list[index].desc}></img>
+        
+        </div>)
 }
 
 

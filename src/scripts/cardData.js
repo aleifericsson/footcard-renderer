@@ -1,3 +1,5 @@
+//import { design_list } from "./otherData";
+
 let card_data = {
     first_name: "Kaoru",
     last_name: "Mitoma",
@@ -15,11 +17,12 @@ let card_data = {
     tackle:"34",
     speed:"91",
 
-    logo_render:"",
-    player_render:"",
+
+    player_render:"https://www.footyrenders.com/render/kaoru-mitoma-1.png",
+    logo_render:"https://1000logos.net/wp-content/uploads/2018/06/Brighton-Hove-Albion-Logo-500x281.png",
 
     pri_col:"#0057B8",
-    sec_col:"#FFFCB3",
+    sec_col:"#FFFFFF",
 
     design_render:"",
 }
@@ -49,13 +52,14 @@ function setData(data){
     data.tackle=document.getElementById("tackle").value;
     data.speed=document.getElementById("speed").value;
 
-    //logo_render
-    //player_render
+
+    data.player_render=document.getElementById("player-url").value;
+    data.logo_render=document.getElementById("logo-url").value;
 
     data.pri_col=document.getElementById("pri-col").value;
     data.sec_col=document.getElementById("sec-col").value;
 
-    //design_render
+    data.design_render=document.getElementById("card-design").dataset.design;
 
     renderData(data);
 
@@ -81,6 +85,11 @@ function renderData(data){
     document.querySelector(".svg-power").innerHTML=data.power;
     document.querySelector(".svg-speed").innerHTML=data.speed;
     document.querySelector(".svg-tackle").innerHTML=data.tackle;
+
+    document.querySelector(".player").src=data.player_render;
+    document.querySelector(".logo").src=data.logo_render;
+
+    //set design_render
 }
 
 export {card_data, setData};

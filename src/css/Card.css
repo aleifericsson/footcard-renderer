@@ -1,10 +1,22 @@
 
 .card{
-  background-color: white;
-  width: 444px;
-  height: 640px;
   text-align: center;
   vertical-align: middle;
+  position:relative
+}
+
+.player{
+  position:"absolute";
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  -webkit-filter: drop-shadow(5px 5px 5px #222);
+  filter: drop-shadow(5px 5px 5px #222);
+}
+
+.logo{
+  -webkit-filter: drop-shadow(0px 0px 5px #222);
+  filter: drop-shadow(0px 0px 5px #222);
 }
 
 /*

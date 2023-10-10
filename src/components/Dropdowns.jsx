@@ -1,6 +1,7 @@
 import { Text,Textalt } from "./StyledComps";
 import DesignPicker from "./DesignPicker";
 import "../css/Dropdowns.css"
+import { card_data } from "../scripts/cardData";
 
 let dropdowndata = [
     {
@@ -10,9 +11,9 @@ let dropdowndata = [
             
                 <>
                 <label><Text>Player First Name:</Text>
-                <input type="text" id="first-name" defaultValue="Kaoru"></input></label>
+                <input type="text" id="first-name" defaultValue={card_data.first_name}></input></label>
                 <label><Text>Player Last Name:</Text>
-                <input type="text" id="last-name" defaultValue="Mitoma"></input></label>
+                <input type="text" id="last-name" defaultValue={card_data.last_name}></input></label>
                 </>
             )
     },
@@ -23,13 +24,13 @@ let dropdowndata = [
             
                 <>
                 <label><Text>Attack</Text>
-                <input type="number" min="0" max="100" id="attack" defaultValue="86"></input></label>
+                <input type="number" min="0" max="100" id="attack" defaultValue={card_data.attack}></input></label>
                 <label><Text>Defence</Text>
-                <input type="number" min="0" max="100" id="defence" defaultValue="39"></input></label>
+                <input type="number" min="0" max="100" id="defence" defaultValue={card_data.defence}></input></label>
                 <label><Text>Price (£m)</Text>
-                <input type="number" min="0" max="100" id="price" defaultValue="40"></input></label>
+                <input type="number" min="0" max="100" id="price" defaultValue={card_data.price}></input></label>
                 <label><Text>Position</Text> 
-                <select defaultValue="Midfielder" name="position" id="position">
+                <select defaultValue={card_data.position} name="position" id="position">
                 <option value="Forward">Forward</option>
                 <option value="Midfielder">Midfielder</option>
                 <option value="Defender">Defender</option>
@@ -46,28 +47,17 @@ let dropdowndata = [
             
                 <>
                 <label><Text>Passing:</Text> 
-                <input type="number" min="0" max="100" id="pass" defaultValue="84"></input></label>
+                <input type="number" min="0" max="100" id="pass" defaultValue={card_data.pass}></input></label>
                 <label><Text>Skill:</Text> 
-                <input type="number" min="0" max="100" id="skill" defaultValue="90"></input></label>
+                <input type="number" min="0" max="100" id="skill" defaultValue={card_data.skill}></input></label>
                 <label><Text>Shooting:</Text> 
-                <input type="number" min="0" max="100" id="shoot" defaultValue="81"></input></label>
+                <input type="number" min="0" max="100" id="shoot" defaultValue={card_data.shoot}></input></label>
                 <label><Text>Power:</Text> 
-                <input type="number" min="0" max="100" id="power" defaultValue="76"></input></label>
+                <input type="number" min="0" max="100" id="power" defaultValue={card_data.power}></input></label>
                 <label><Text>Tackling:</Text> 
-                <input type="number" min="0" max="100" id="tackle" defaultValue="34"></input></label>
+                <input type="number" min="0" max="100" id="tackle" defaultValue={card_data.tackle}></input></label>
                 <label><Text>Speed:</Text>
-                <input type="number" min="0" max="100" id="speed" defaultValue="91"></input></label>
-                </>
-            )
-    },
-    {
-        name:"Render Logo",
-        open:false,
-        contents:(
-            
-                <>
-                <button type="button" id="import-logo"><Textalt>Import Logo</Textalt></button>
-                <button type="button" id="select-logo"><Textalt>Select From Existing Logos</Textalt></button>
+                <input type="number" min="0" max="100" id="speed" defaultValue={card_data.speed}></input></label>
                 </>
             )
     },
@@ -79,6 +69,21 @@ let dropdowndata = [
                 <>
                 <button type="button" id="import-player"><Textalt>Import Player</Textalt></button>
                 <button type="button" id="select-player"><Textalt>Select From Existing Players</Textalt></button>
+                <label><Text>{"or enter an image URL:"}</Text></label>
+                <input type="text" id="player-url" defaultValue={card_data.player_render}></input>
+                </>
+            )
+    },
+    {
+        name:"Render Logo",
+        open:false,
+        contents:(
+            
+                <>
+                <button type="button" id="import-logo"><Textalt>Import Logo</Textalt></button>
+                <button type="button" id="select-logo"><Textalt>Select From Existing Logos</Textalt></button>
+                <label><Text>{"or enter an image URL:"}</Text></label>
+                <input type="text" id="logo-url" defaultValue={card_data.logo_render}></input>
                 </>
             )
     },
@@ -89,9 +94,9 @@ let dropdowndata = [
             
                 <>
                 <label><Text>Primary Color:</Text> 
-                <input type="color" id="pri-col" defaultValue="#0057B8"></input></label>
+                <input type="color" id="pri-col" defaultValue={card_data.pri_col}></input></label>
                 <label><Text>Secondary Color:</Text> 
-                <input type="color" id="sec-col" defaultValue="#FFCD00"></input></label>
+                <input type="color" id="sec-col" defaultValue={card_data.sec_col}></input></label>
                 </>
             )
     },
