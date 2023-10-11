@@ -6,6 +6,7 @@ import Card from "./Card";
 import dropdowndata from "./Dropdowns";
 import { card_data, setData } from "../scripts/cardData";
 import { def_tra } from "../scripts/otherData";
+import html2canvas from 'html2canvas';
 
 /*
 NOTES:
@@ -49,6 +50,15 @@ export default function Home(){
             >Render Card</motion.button>
             </AnimatePresence>
             </form>
+            <motion.button type="button" id="download" onClick={(e)=>{
+                e.preventDefault();
+                html2canvas(document.querySelector(".card"), {allowTaint:true}).then(canvas => {
+                    document.body.appendChild(canvas)
+                });
+            }}
+            layout
+            transition={def_tra}
+            >Download Card</motion.button>
             </div>
             <div className="right-side">
                 <Card></Card>

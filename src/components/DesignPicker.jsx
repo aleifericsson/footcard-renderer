@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Text } from "./StyledComps";
-import { design_list } from "../scripts/otherData";
+import { design_list } from "../scripts/designData";
 
 export default function DesignPicker(){
     const [cur_design, changeDesign] = useState(0);

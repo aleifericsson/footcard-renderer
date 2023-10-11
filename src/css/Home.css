@@ -45,8 +45,10 @@ input{
     font-family:"Lato" sans-serif;
 }
 
-#submit{
+#submit, #download{
     margin: 20px 15px;
+    margin-bottom: 0;
+    width:200px;
     box-shadow: -5px -5px #2A7F62, 5px 5px #2A7F62;
     border: 5px solid #DFD9E2;
     font-size:20px;

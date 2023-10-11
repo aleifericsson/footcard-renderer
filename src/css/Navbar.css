@@ -15,5 +15,11 @@
 
 .navtit{
     display:flex;
-    gap:30px;
+    gap:20px;
+    align-items: center;
+}
+
+.web-logo{
+    height:60px;
+    width:auto;
 }
