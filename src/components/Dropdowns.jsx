@@ -72,7 +72,7 @@ let dropdowndata = [
                 <label><Text>{"Enter a player image URL:"}</Text>
                 <input type="text" id="player-url" defaultValue={card_data.player_render}></input></label>
                 <div><Text>Tip: Go to <a href="https://www.footyrenders.com/">FootyRenders</a> to find player images!</Text></div>
-                <div><Text>Tip 2: Ensure your link ends in .png or .jpg</Text></div>
+                <div><Text>Tip 2: Ensure your link ends in .png ONLY</Text></div>
                 </>
             )
     },
@@ -86,8 +86,8 @@ let dropdowndata = [
                 <button type="button" id="select-logo"><Textalt>Select From Existing Logos</Textalt></button>*/}
                 <label><Text>{"Enter a logo image URL:"}</Text>
                 <input type="text" id="logo-url" defaultValue={card_data.logo_render}></input></label>
-                <div><Text>Tip: Go to <a href="https://1000logos.net/soccer/">1000 Logos</a> to find logo images!</Text></div>
-                <div><Text>Tip 2: Ensure your link ends in .png or .jpg</Text></div>
+                <div><Text>Tip: Just use google images to find logos</Text></div>
+                <div><Text>Tip 2: Ensure your link ends in .png ONLY</Text></div>
                 </>
             )
     },
