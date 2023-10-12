@@ -53,7 +53,23 @@ export default function Home(){
             <motion.button type="button" id="download" onClick={(e)=>{
                 e.preventDefault();
                 html2canvas(document.querySelector(".card"), {allowTaint:true}).then(canvas => {
-                    document.body.appendChild(canvas)
+                    const text = document.createElement("div");
+                    text.innerHTML="Right click the card and press save image as!";
+                    text.classList.add("text");
+                    const done_but = document.createElement("button");
+                    done_but.classList.add("done");
+                    done_but.innerHTML = "Back";
+                    done_but.addEventListener("click", ()=>{
+                        document.querySelector(".backdrop").remove();
+                    });
+                    const backdrop = document.createElement("div");
+                    backdrop.classList.add("backdrop");
+                    canvas.classList.add("canva");
+                    backdrop.appendChild(text);
+                    backdrop.appendChild(canvas);
+                    backdrop.appendChild(done_but);
+                    window.scrollTo(0, 0);
+                    document.body.appendChild(backdrop);
                 });
             }}
             layout

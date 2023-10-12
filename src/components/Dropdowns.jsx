@@ -1,4 +1,4 @@
-import { Text,Textalt } from "./StyledComps";
+import { Text } from "./StyledComps";
 import DesignPicker from "./DesignPicker";
 import "../css/Dropdowns.css"
 import { card_data } from "../scripts/cardData";
@@ -67,10 +67,12 @@ let dropdowndata = [
         contents:(
             
                 <>
-                <button type="button" id="import-player"><Textalt>Import Player</Textalt></button>
-                <button type="button" id="select-player"><Textalt>Select From Existing Players</Textalt></button>
-                <label><Text>{"or enter an image URL:"}</Text></label>
-                <input type="text" id="player-url" defaultValue={card_data.player_render}></input>
+                {/*<button type="button" id="import-player"><Textalt>Import Player</Textalt></button>
+                <button type="button" id="select-player"><Textalt>Select From Existing Players</Textalt></button>*/}
+                <label><Text>{"Enter a player image URL:"}</Text>
+                <input type="text" id="player-url" defaultValue={card_data.player_render}></input></label>
+                <div><Text>Tip: Go to <a href="https://www.footyrenders.com/">FootyRenders</a> to find player images!</Text></div>
+                <div><Text>Tip 2: Ensure your link ends in .png or .jpg</Text></div>
                 </>
             )
     },
@@ -80,10 +82,12 @@ let dropdowndata = [
         contents:(
             
                 <>
-                <button type="button" id="import-logo"><Textalt>Import Logo</Textalt></button>
-                <button type="button" id="select-logo"><Textalt>Select From Existing Logos</Textalt></button>
-                <label><Text>{"or enter an image URL:"}</Text></label>
-                <input type="text" id="logo-url" defaultValue={card_data.logo_render}></input>
+                {/*<button type="button" id="import-logo"><Textalt>Import Logo</Textalt></button>
+                <button type="button" id="select-logo"><Textalt>Select From Existing Logos</Textalt></button>*/}
+                <label><Text>{"Enter a logo image URL:"}</Text>
+                <input type="text" id="logo-url" defaultValue={card_data.logo_render}></input></label>
+                <div><Text>Tip: Go to <a href="https://1000logos.net/soccer/">1000 Logos</a> to find logo images!</Text></div>
+                <div><Text>Tip 2: Ensure your link ends in .png or .jpg</Text></div>
                 </>
             )
     },
