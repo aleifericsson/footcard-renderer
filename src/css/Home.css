@@ -102,6 +102,6 @@ input{
     position:absolute;
     top:0;
     width:100vw;
-    height:100%;
+    height:125vh;
     background-color: hsla(1, 0%, 0%, 0.5);
 }

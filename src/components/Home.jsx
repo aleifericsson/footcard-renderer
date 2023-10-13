@@ -19,7 +19,8 @@ NOTES:
 */
 
 export default function Home(){
-    const [dropdowns, updatedropdowns] = useState(dropdowndata);    
+    const [dropdowns, updatedropdowns] = useState(dropdowndata); 
+    const [des_ind, upd_des_ind] = useState(0);      
 
     return (
         <div className="home">
@@ -43,6 +44,7 @@ export default function Home(){
                 <AnimatePresence>
             <motion.button type="submit" id="submit" onClick={(e)=>{
                 e.preventDefault();
+                upd_des_ind(document.getElementById("card-design").dataset.index);
                 console.log(setData(card_data));
             }}
             layout
@@ -77,7 +79,7 @@ export default function Home(){
             >Download Card</motion.button>
             </div>
             <div className="right-side">
-                <Card></Card>
+                <Card index={des_ind}></Card>
             </div>
         </div>
     );

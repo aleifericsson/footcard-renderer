@@ -2,7 +2,9 @@
 .card{
   text-align: center;
   vertical-align: middle;
-  position:relative
+  position:relative;
+  width:444px;
+  height:640px;
 }
 
 .player{

@@ -1,4 +1,4 @@
-//import { design_list } from "./otherData";
+import { design_list } from "./designData";
 
 let card_data = {
     first_name: "Kaoru",
@@ -23,8 +23,11 @@ let card_data = {
 
     pri_col:"#0057B8",
     sec_col:"#FFFFFF",
+    ter_col:"#fade41",
 
     design_render:"",
+    raw_design:"",
+    design_index:0,
 }
 
 function setData(data){
@@ -60,6 +63,8 @@ function setData(data){
     data.sec_col=document.getElementById("sec-col").value;
 
     data.design_render=document.getElementById("card-design").dataset.design;
+    data.design_index=document.getElementById("card-design").dataset.index;
+    data.raw_design=design_list[data.design_index]
 
     renderData(data);
 
@@ -67,10 +72,18 @@ function setData(data){
 }
 
 function renderData(data){
-    const svg_pri_col = document.querySelectorAll(".svg-pri-col");
-    svg_pri_col.forEach(part => {part.style.fill=data.pri_col});
-    const svg_sec_col = document.querySelectorAll(".svg-sec-col");
-    svg_sec_col.forEach(part => {part.style.fill=data.sec_col});
+    if (data.raw_design.colors>=1){
+        const svg_pri_col = document.querySelectorAll(".svg-pri-col");
+        svg_pri_col.forEach(part => {part.style.fill=data.pri_col});
+    }
+    if (data.raw_design.colors>=2){
+        const svg_sec_col = document.querySelectorAll(".svg-sec-col");
+        svg_sec_col.forEach(part => {part.style.fill=data.sec_col});
+    }
+    if (data.raw_design.colors>=3){
+        const svg_ter_col = document.querySelectorAll(".svg-ter-col");
+        svg_ter_col.forEach(part => {part.style.fill=data.ter_col});
+    }
 
     document.querySelector(".svg-first-name").innerHTML=data.first_name;
     document.querySelector(".svg-last-name").innerHTML=data.last_name;
