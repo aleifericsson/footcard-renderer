@@ -12,9 +12,9 @@ export default function Card({index}){
         <motion.div layout
         transition={def_tra} className="card">
         {design_list[index].svg1}
-        <img width="auto" height="550px" className="player" style={{position:"absolute",top:"50%",left:"50%", transform:"translate(-50%,-50%)"}} src={card_data.player_render}/>
+        <img className="player" style={{position:"absolute",top:"50%",left:"50%", transform:"translate(-50%,-50%)"}} src={card_data.player_render}/>
         {design_list[index].svg2}
-        <img className ="logo" width="auto" height="100px" style={{position:"absolute",top:"85%",left:"50%", transform:"translate(-50%,-50%)"}} src={card_data.logo_render}/>
+        <img className ="logo" style={{position:"absolute",top:"85%",left:"50%", transform:"translate(-50%,-50%)"}} src={card_data.logo_render}/>
         </motion.div>
     );
 }

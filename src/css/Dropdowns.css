@@ -12,3 +12,29 @@
 input[type=text]{
     margin-top:5px;
 }
+
+.arrow-button{
+    height: 25px;
+    width:25px;
+    padding:0px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrow{
+    flex-shrink: 0;
+    margin:5px;
+}
+
+#card-design{
+    width:111px;
+    height:160px;
+}
+
+@media  screen and (max-width:800px) {
+    #card-design{
+        width:55px;
+        height:80px;
+    }
+}

@@ -7,7 +7,7 @@ export default function DesignPicker(){
 
     return(<div>
         <div className="design-picker">
-        <button type="button" onClick={()=>{
+        <button type="button" className = "arrow-button" onClick={()=>{
             if(cur_design>0){
                 changeDesign(cur_design-1)
             }
@@ -16,7 +16,7 @@ export default function DesignPicker(){
             }}
         }><Arrow left={true}/></button>
         <CardDesign index={cur_design}></CardDesign>
-        <button type="button" onClick={()=>{
+        <button type="button" className = "arrow-button" onClick={()=>{
             if(cur_design<design_list.length-1){
                 changeDesign(cur_design+1)
             }
@@ -41,12 +41,12 @@ function CardDesign({index}){
 function Arrow({left}){
     return left ? (
         <svg 
-        xmlns="http://www.w3.org/2000/svg" style={{transform:"rotate(90deg)"}} width="36" height="36" viewBox="0 0 36 36" >
+        xmlns="http://www.w3.org/2000/svg" className="arrow" style={{transform:"rotate(90deg)"}} width="36" height="36" viewBox="0 0 36 36" >
         <path fill="white" d="M10.5 15l7.5 7.5 7.5-7.5z"/>
         </svg>
     ):(
         <svg 
-        xmlns="http://www.w3.org/2000/svg" style={{transform:"rotate(270deg)"}} width="36" height="36" viewBox="0 0 36 36">
+        xmlns="http://www.w3.org/2000/svg" className="arrow"  style={{transform:"rotate(270deg)"}} width="36" height="36" viewBox="0 0 36 36">
         <path fill="white" d="M10.5 15l7.5 7.5 7.5-7.5z"/>
         </svg>
     );
