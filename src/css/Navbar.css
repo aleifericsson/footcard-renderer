@@ -17,6 +17,15 @@
     display:flex;
     gap:20px;
     align-items: center;
+    justify-content: center;
+}
+@media screen and (max-width:800px) {
+    .navtit{
+        gap:7px;
+    }
+    .navbutts{
+        gap:7px;
+    }
 }
 
 .web-logo{

@@ -5,8 +5,6 @@ import { motion } from "framer-motion";
 import { def_tra } from "../scripts/otherData";
 
 export default function Card({index}){
- 
-
     return (
         //before you make anything pls try make it always be onscreen regardless of scroll (desktop mode not mobile)
         <motion.div layout

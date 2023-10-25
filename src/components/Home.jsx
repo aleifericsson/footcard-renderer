@@ -103,7 +103,8 @@ function Dropmenu({text,open,oncl,keys}){
 
 function Arrow({open}){
     return open ? (
-        <motion.svg 
+        <motion.svg
+        className="arrow" 
         initial={{ rotate:0 }}
         animate={{ rotate:180 }}
         transition={def_tra}
@@ -112,6 +113,7 @@ function Arrow({open}){
         </motion.svg>
     ):(
         <motion.svg 
+        className="arrow"
         initial={{ rotate:180 }}
         animate={{ rotate:0 }}
         transition={def_tra}

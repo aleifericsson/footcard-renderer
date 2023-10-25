@@ -32,7 +32,7 @@ export default function DesignPicker(){
 
 function CardDesign({index}){
     return(<div>
-        <img id="card-design" width={111} height={160} src={design_list[index].source} data-design={design_list[index].desc} data-index={index}></img>
+        <img id="card-design" src={design_list[index].source} data-design={design_list[index].desc} data-index={index}></img>
         
         </div>)
 }

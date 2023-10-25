@@ -57,6 +57,21 @@ input{
     font-weight:800;
 }
 
+@media screen and (max-width:800px) {
+    #submit, #download{
+        font-size:16px;
+        width:80px;
+        padding:3px;
+        box-shadow: -3px -3px #2A7F62, 3px 3px #2A7F62;
+        border: 3px solid #DFD9E2;
+    }
+
+    .dropmenu{
+        width:100px;
+        min-width:0px;
+    }
+}
+
 #download{
     margin-bottom: 20px;
 }
